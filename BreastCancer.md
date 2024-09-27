@@ -17,7 +17,6 @@ This project demonstrates a machine learning approach for predicting breast canc
 - [Hyperparameter Tuning](#hyperparameter-tuning)
 - [Cross-Validation](#cross-validation)
 - [Results](#results)
-- [License](#license)
 
 ## Project Overview
 
@@ -49,3 +48,32 @@ The project requires the following libraries:
 - Matplotlib
 - Seaborn
 - Scikit-learn
+
+## Loading and Cleaning Data:
+
+Data is read using Pandas from a CSV file.
+- Irrelevant columns like 'id' and 'Unnamed: 32' are removed.
+- The diagnosis column is mapped to binary values: malignant ('M') is 1, and benign ('B') is 0.
+### Exploratory Data Analysis (EDA):
+- The script explores the dataset with descriptive statistics.
+- The correlation matrix is visualized using Seaborn's heatmap to show relationships between variables.
+- Pairplot visualizes relationships between selected features with respect to the diagnosis.
+### Feature Selection and Reduction:
+- Unnecessary columns like 'worst' metrics and some 'mean', 'se' metrics are removed to reduce dimensionality.
+- **Train-Test Split:**
+- The dataset is split into training and testing sets with an 80-20 ratio.
+- **Feature Scaling:**
+- StandardScaler is used to scale the features to improve model performance.
+- **SVM Model Training:**
+- A basic SVM model is trained using the scaled training data.
+- Predictions are made on the test set, and accuracy, confusion matrix, and classification report are generated.
+### Model Tuning with GridSearchCV:
+- A grid search is used to tune the SVM's hyperparameters (C, gamma, kernel) to find the best model.
+- The best model is used for prediction, and evaluation metrics are reported again.
+
+### Model Evaluation
+After training the model, we evaluate its performance using:
+
+- **Accuracy Score**
+- **Confusion Matrix**
+- **Classification Report**
